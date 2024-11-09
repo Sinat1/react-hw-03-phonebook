@@ -7,6 +7,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+  background: linear-gradient(to right, aliceblue, rgb(245, 245, 247));
+
+  min-height: calc(100vh-150px);
+  overscroll-behavior: none;
 }
 
 code {
