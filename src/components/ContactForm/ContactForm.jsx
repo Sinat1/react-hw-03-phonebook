@@ -17,8 +17,21 @@ const initialValues = {
 };
 
 const schema = yup.object().shape({
-  name: yup.string().required('Name is required'),
-  number: yup.string().min(6).max(12).required('Phone number is required'),
+  name: yup
+    .string()
+    .matches(
+      /^[a-zA-Zа-яА-Я\s'-]+$/,
+      'Name can only contain letters, spaces, hyphens, and apostrophes'
+    )
+    .min(2, 'Name must be at least 2 characters')
+    .required('Name is required'),
+  number: yup
+    .string()
+    .matches(
+      /^\d{6,12}$/,
+      'Phone number must be between 6 and 12 digits and contain only numbers'
+    )
+    .required('Phone number is required'),
 });
 const ContactForm = ({ onSubmit }) => {
   const handleSubmit = (values, { resetForm }) => {
