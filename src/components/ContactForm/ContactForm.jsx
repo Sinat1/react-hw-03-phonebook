@@ -9,6 +9,7 @@ import {
   FormErrorMessage,
   FormBtn,
 } from './ContactForm.styled';
+import PropTypes from 'prop-types';
 
 const initialValues = {
   name: '',
@@ -50,58 +51,8 @@ const ContactForm = ({ onSubmit }) => {
   );
 };
 
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
 export default ContactForm;
-
-// class ContactForm extends Component {
-//   state = {
-//     name: '',
-//     number: '',
-//   };
-
-//   handleData = e => {
-//     const { name, value } = e.currentTarget;
-//     this.setState({
-//       [name]: value,
-//     });
-//   };
-
-//   handleSubmit = e => {
-//     const { name, number } = this.state;
-//     e.preventDefault();
-
-//     this.props.onSubmit(name, number);
-
-//     this.setState({ name: '', number: '' });
-//     return;
-//   };
-
-//   render() {
-//     const { name, number } = this.state;
-//     return (
-//       <Formik>
-//         <FormTitle>Phonebook</FormTitle>
-//         <FormikForm onSubmit={this.handleSubmit}>
-//           <FormLabel htmlFor="name">
-//             Name:
-//             <FormInput
-//               type="text"
-//               name="name"
-//               value={name}
-//               onChange={this.handleData}
-//             />
-//           </FormLabel>
-//           <FormLabel htmlFor="number">
-//             Phone:
-//             <FormInput
-//               type="tel"
-//               name="number"
-//               value={number}
-//               onChange={this.handleData}
-//             />
-//           </FormLabel>
-//           <button type="submit">Add contact</button>
-//         </FormikForm>
-//       </Formik>
-//     );
-//   }
-// }

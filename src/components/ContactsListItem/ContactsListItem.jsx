@@ -3,6 +3,7 @@ import {
   ListBtn,
   StyledTrashIcon,
 } from './ContactsListItem.styled';
+import PropTypes from 'prop-types';
 
 const ContactsListItem = ({ contacts, onContactDelete }) => {
   return (
@@ -21,6 +22,17 @@ const ContactsListItem = ({ contacts, onContactDelete }) => {
       ))}
     </>
   );
+};
+
+ContactsListItem.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onContactDelete: PropTypes.func.isRequired,
 };
 
 export default ContactsListItem;

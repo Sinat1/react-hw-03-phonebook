@@ -4,6 +4,7 @@ import {
   FormSpan,
   FormInput,
 } from 'components/ContactForm/ContactForm.styled';
+import PropTypes from 'prop-types';
 
 const Filter = ({ filter, filterValue }) => {
   return (
@@ -19,6 +20,11 @@ const Filter = ({ filter, filterValue }) => {
       </FormLabel>
     </Formik>
   );
+};
+
+Filter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  filterValue: PropTypes.func.isRequired,
 };
 
 export default Filter;
